@@ -21,7 +21,7 @@ import { showAlert } from "@/utils/alert";
 
 export default function MyCalendar() {
   const { data, setData, isModal, setIsModal } = useStore();
-  const [selectedDate, setSelectedDate] = useState<Moment | null>(null); // Типизация для даты
+  const [selectedDate, setSelectedDate] = useState<Moment | null>(null);
   const [allEvents, setAllEvents] = useState<EventFormData[] | null>(null);
   const [idEvent, setIdEvent] = useState<number | null>(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
@@ -75,6 +75,9 @@ export default function MyCalendar() {
   });
 
   const createEvent = () => {
+    if (!selectedDate) {
+      return showAlert("warning", "selected a date first!");
+    }
     const eventDate = moment(selectedDate, "MMM D.YYYY");
     const today = moment().startOf("day");
 
@@ -87,7 +90,6 @@ export default function MyCalendar() {
 
   return (
     <ScrollView
-      style={styles.scrollView}
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false}
     >
@@ -112,12 +114,15 @@ export default function MyCalendar() {
           }
         />
       </View>
+
       <View style={styles.btnContainer}>
         <TouchableOpacity style={styles.showBtn} onPress={createEvent}>
           <Ionicons name="add" size={24} color="white" />
         </TouchableOpacity>
         <Text style={styles.labelBnt}>Create New Event</Text>
       </View>
+
+      {/* Модальные окна */}
       {isModal.form ? (
         <View style={{ width: "100%" }}>
           <CommonModal>
@@ -158,11 +163,22 @@ export default function MyCalendar() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "flex-start",
+    padding: 20,
+    backgroundColor: "white",
+  },
+  contCalendar: {
+    marginBottom: 20,
+    width: "100%",
+  },
   btnContainer: {
-    display: "flex",
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
+    marginTop: 20,
   },
   showBtn: {
     width: 30,
@@ -184,32 +200,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     lineHeight: 36,
   },
-  scrollView: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-  container: {
-    flexGrow: 1,
-    minHeight: 800,
-    alignItems: "center",
-    justifyContent: "flex-start",
-    padding: 20,
-    backgroundColor: "white",
-  },
-  contCalendar: {
-    marginBottom: 20,
-    width: "100%",
-  },
   eventsContainer: {
     marginTop: 20,
     width: "100%",
     zIndex: -1,
     gap: 20,
-  },
-  event: {
-    padding: 10,
-    marginBottom: 10,
-    backgroundColor: "#f0f0f0",
-    borderRadius: 5,
   },
 });

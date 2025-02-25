@@ -23,8 +23,8 @@ export default function Select({ formData, setFormData }: SelectProps) {
         <TextInput
           style={styles.input}
           value={formData.repeat || inputValue}
-          onFocus={() => setShowDropdown(true)} // Показываем список при фокусе на инпуте
-          editable={false} // Отключаем возможность ручного ввода
+          onFocus={() => setShowDropdown(true)} 
+          editable={false}
         />
         <TouchableOpacity onPress={() => setShowDropdown(!showDropdown)}>
           <Icon
@@ -48,8 +48,8 @@ export default function Select({ formData, setFormData }: SelectProps) {
                   ...prev,
                   repeat: item,
                 }));
-                setInputValue(item); // Обновляем инпут выбранным значением
-                setShowDropdown(false); // Закрываем список
+                setInputValue(item);
+                setShowDropdown(false);
               }}
             >
               <Text>{item}</Text>

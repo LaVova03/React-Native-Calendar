@@ -1,7 +1,7 @@
-import * as React from "react";
-import { Modal, Portal, PaperProvider } from "react-native-paper";
+import React from "react";
+import Modal from "react-native-modal";
 import { ModalFormProps } from "@/types/types";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useStore } from "@/stores/useStore";
 
@@ -16,38 +16,31 @@ const CommonModal = ({ children }: ModalFormProps) => {
   };
 
   return (
-    <PaperProvider>
-      <Portal>
-        <Modal
-          visible={isModal.confirm || isModal.edit || isModal.form}
-          onDismiss={hideModal}
-          contentContainerStyle={styles.container}
-        >
-          <View style={styles.content}>
-            <TouchableOpacity style={styles.closeBtn} onPress={hideModal}>
-              <Ionicons name="close" size={24} color="black" />
-            </TouchableOpacity>
-            {children}
-          </View>
-        </Modal>
-      </Portal>
-    </PaperProvider>
+    <Modal
+      isVisible={isModal.confirm || isModal.edit || isModal.form}
+      onBackdropPress={hideModal}
+      onBackButtonPress={hideModal}
+      style={styles.modal}
+    >
+      <View style={styles.content}>
+        <TouchableOpacity style={styles.closeBtn} onPress={hideModal}>
+          <Ionicons name="close" size={24} color="black" />
+        </TouchableOpacity>
+        {children}
+      </View>
+    </Modal>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    justifyContent: "center",
+  modal: {
+    justifyContent: "center", 
     alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)", // затемнение фона
+    margin: 0,
   },
   content: {
-    width: "100%", // ширина модального окна
+    width: "90%",
+    maxHeight: "80%",
     backgroundColor: "white",
     padding: 20,
     borderRadius: 10,
@@ -56,6 +49,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
+    overflow: "hidden",
   },
   closeBtn: {
     position: "absolute",

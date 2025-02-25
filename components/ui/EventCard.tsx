@@ -61,7 +61,6 @@ export default EventCard;
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: "auto",
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderWidth: 1,
