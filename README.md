@@ -1,8 +1,6 @@
 # React-Native + TypeScript + Expo Project
 
-# How to use:
-
----
+## How to use:
 
 To create an event, follow these steps:
 
@@ -13,8 +11,6 @@ To create an event, follow these steps:
 5. After saving, your planned event will appear on the screen.
 6. To **edit** the event, click on the **edit icon** (if the event date is not in the past).
 7. To **delete** the event, click on the **trash can icon**.
-
----
 
 ## 📚 Project Description
 
