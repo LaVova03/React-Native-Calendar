@@ -112,7 +112,6 @@ This project is structured with clear separation of concerns for easy scalabilit
 ### Scripts:
 
 - Run the development server: `npm run start` or `npm start`
-- Build the project: `npm run build`
 - Run tests: `npm run test`
 
 ## 🛠️ Technologies Used
