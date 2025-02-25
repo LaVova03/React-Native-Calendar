@@ -6,20 +6,24 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { useTranslation } from "react-i18next";
 import CalendarPicker from "react-native-calendar-picker";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import moment, { Moment } from "moment";
+
 import { EventFormData } from "@/types/types";
-import Form from "../components/ui/Form";
-import CommonModal from "@/components/ui/CommonModal";
 import { useStore } from "@/stores/useStore";
 import { getEvents } from "@/api/getEvents";
-import EventCard from "@/components/ui/EventCard";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import Confirm from "@/components/ui/Confirm";
 import { deleteEvent } from "@/api/deleteEvent";
 import { showAlert } from "@/utils/alert";
 
+import Confirm from "@/components/ui/Confirm";
+import Form from "../components/ui/Form";
+import CommonModal from "@/components/ui/CommonModal";
+import EventCard from "@/components/ui/EventCard";
+
 export default function MyCalendar() {
+  const { t } = useTranslation();
   const { data, setData, isModal, setIsModal } = useStore();
   const [selectedDate, setSelectedDate] = useState<Moment | null>(null);
   const [allEvents, setAllEvents] = useState<EventFormData[] | null>(null);
@@ -76,13 +80,13 @@ export default function MyCalendar() {
 
   const createEvent = () => {
     if (!selectedDate) {
-      return showAlert("warning", "selected a date first!");
+      return showAlert(t("warning"), t("alertChooseDate"));
     }
     const eventDate = moment(selectedDate, "MMM D.YYYY");
     const today = moment().startOf("day");
 
     if (eventDate.isBefore(today)) {
-      showAlert("Error", "You cannot create an event in the past!");
+      showAlert(t("error"), t("can'tCreate"));
       return;
     }
     showModal("form");
@@ -119,10 +123,9 @@ export default function MyCalendar() {
         <TouchableOpacity style={styles.showBtn} onPress={createEvent}>
           <Ionicons name="add" size={24} color="white" />
         </TouchableOpacity>
-        <Text style={styles.labelBnt}>Create New Event</Text>
+        <Text style={styles.labelBnt}>{t("createEvent")}</Text>
       </View>
 
-      {/* Модальные окна */}
       {isModal.form ? (
         <View style={{ width: "100%" }}>
           <CommonModal>
@@ -155,7 +158,7 @@ export default function MyCalendar() {
             </View>
           ))
         ) : (
-          <Text>No events for this date</Text>
+          <Text>{t("noEvents")}</Text>
         )}
       </View>
     </ScrollView>

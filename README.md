@@ -41,6 +41,9 @@ This project is built using React Native, TypeScript, and Expo. The architecture
 ├── Colors.ts                          // constant file for theme
 /hooks                                 // hooks folder
 ├── useColorScheme.ts                  // hook file
+/locales                               // locales folder
+├── i18n.ts                            // locales config file
+├── en.json                            // language file
 /store                                 // state manager folder
 ├── types.ts                           // state types
 ├── useStore.ts                        // store file
@@ -82,15 +85,20 @@ This project is structured with clear separation of concerns for easy scalabilit
 6. **/hooks**: Custom React hooks for reusability.
    - `useColorScheme.ts`: A hook for determining the current color scheme (light/dark).
 
-7. **/store**: State management folder (e.g., Redux or React Context).
+7. **/locales**: Localization resources and configuration.
+   - `i18n.ts`: Configuration for i18next localization, including language settings and translations.
+   - `en.json`: English language translation file.
+   - `ua.json`: Russian language translation file.
+
+8. **/store**: State management folder (e.g., Redux or React Context).
    - `useStore.ts`: Manages global state transitions.
    - `types.ts`: Types related to state management.
 
-8. **/types**: Centralized place for all type definitions.
+9. **/types**: Centralized place for all type definitions.
    - `react-native-calendar-picker.d.ts`: Type definitions for the calendar picker library.
    - `types.ts`: General types used across the app.
 
-9. **/utils**: Utility functions and helpers.
+10. **/utils**: Utility functions and helpers.
    - `alert.ts`: A utility function for showing alerts.
 
 ## 🚀 Getting Started

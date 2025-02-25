@@ -1,21 +1,24 @@
-import { useStore } from "@/stores/useStore";
-import { ConfirmProps } from "@/types/types";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-paper";
+import { useTranslation } from "react-i18next";
+
+import { useStore } from "@/stores/useStore";
+import { ConfirmProps } from "@/types/types";
 
 function Confirm({ setConfirmDelete }: ConfirmProps) {
   const { setIsModal } = useStore();
+  const { t } = useTranslation();
   return (
     <View style={styles.wrap}>
-      <Text style={styles.text}>Confirm deletion?</Text>
+      <Text style={styles.text}>{t("headerConfirm")}</Text>
       <View style={styles.wrapBtn}>
         <Button
           mode="contained"
           textColor="white"
           onPress={() => setIsModal("confirm", false)}
         >
-          Cancel
+          {t("cancel")}
         </Button>
         <Button
           mode="contained"
@@ -25,7 +28,7 @@ function Confirm({ setConfirmDelete }: ConfirmProps) {
             setIsModal("confirm", false);
           }}
         >
-          Delete
+          {t("delete")}
         </Button>
       </View>
     </View>

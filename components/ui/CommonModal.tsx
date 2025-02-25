@@ -1,8 +1,9 @@
 import React from "react";
 import Modal from "react-native-modal";
-import { ModalFormProps } from "@/types/types";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+
+import { ModalFormProps } from "@/types/types";
 import { useStore } from "@/stores/useStore";
 
 const CommonModal = ({ children }: ModalFormProps) => {
@@ -34,7 +35,7 @@ const CommonModal = ({ children }: ModalFormProps) => {
 
 const styles = StyleSheet.create({
   modal: {
-    justifyContent: "center", 
+    justifyContent: "center",
     alignItems: "center",
     margin: 0,
   },

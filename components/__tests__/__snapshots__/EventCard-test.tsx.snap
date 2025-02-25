@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventCard renders correctly 1`] = `
+<View
+  style={
+    {
+      "borderColor": "black",
+      "borderRadius": 20,
+      "borderWidth": 1,
+      "gap": 20,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+      "shadowColor": "rgb(255, 213, 0)",
+      "shadowOffset": {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 4,
+      "width": "100%",
+    }
+  }
+>
+  <View>
+    <Text
+      style={
+        {
+          "borderBottomColor": "black",
+          "borderBottomWidth": 1,
+          "fontSize": 20,
+          "fontWeight": 600,
+          "paddingBottom": 5,
+          "textAlign": "center",
+          "width": "auto",
+        }
+      }
+    >
+      Test Event
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "borderBottomColor": "black",
+          "borderBottomWidth": 1,
+          "fontWeight": 600,
+          "paddingBottom": 5,
+          "textAlign": "center",
+          "width": "30%",
+        }
+      }
+    >
+      Jan 1.2025
+    </Text>
+    <Text
+      style={
+        {
+          "borderBottomColor": "black",
+          "borderBottomWidth": 1,
+          "fontWeight": 600,
+          "paddingBottom": 5,
+          "textAlign": "center",
+          "width": "30%",
+        }
+      }
+    >
+      10:00 AM
+    </Text>
+    <Text
+      style={
+        {
+          "borderBottomColor": "black",
+          "borderBottomWidth": 1,
+          "fontWeight": 600,
+          "paddingBottom": 5,
+          "textAlign": "center",
+          "width": "30%",
+        }
+      }
+    >
+      None
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "gap": 20,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <Ionicons
+        color="black"
+        name="trash-bin"
+        size={20}
+        style={
+          {
+            "backgroundColor": "rgb(255 213 0)",
+            "borderRadius": 15,
+            "padding": 5,
+          }
+        }
+      />
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <Ionicons
+        color="black"
+        name="create"
+        size={20}
+        style={
+          {
+            "backgroundColor": "rgb(255 213 0)",
+            "borderRadius": 15,
+            "padding": 5,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

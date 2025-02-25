@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Pressable, Text, View, StyleSheet } from "react-native";
 import { TextInput } from "react-native-paper";
+import moment from "moment";
+import { useTranslation } from "react-i18next";
+
 import { EventFormData } from "@/types/types";
-import Select from "./Select";
-import { postEvent } from "@/api/postEvent";
 import { FormProps } from "@/types/types";
 import { useStore } from "@/stores/useStore";
 import { getEvents } from "@/api/getEvents";
 import { putEvent } from "@/api/putEvent";
-import moment from "moment";
+import { postEvent } from "@/api/postEvent";
 import { showAlert } from "@/utils/alert";
 
+import Select from "./Select";
+
 function Form({ selectedDate, editEvent }: FormProps) {
+  const { t } = useTranslation();
   const { setData, setIsModal } = useStore();
 
   const [formData, setFormData] = useState<EventFormData>(() => {
@@ -20,7 +24,7 @@ function Form({ selectedDate, editEvent }: FormProps) {
         eventName: editEvent.eventName || "",
         startDate: editEvent.startDate || "",
         startTime: editEvent.startTime || "",
-        repeat: editEvent.repeat || "Weekly",
+        repeat: editEvent.repeat || t("week"),
         id: editEvent.id,
       };
     } else {
@@ -28,7 +32,7 @@ function Form({ selectedDate, editEvent }: FormProps) {
         eventName: "",
         startDate: "",
         startTime: "",
-        repeat: "Weekly",
+        repeat: t("week"),
       };
     }
   });
@@ -52,7 +56,7 @@ function Form({ selectedDate, editEvent }: FormProps) {
     const checkData = Object.values(formData).every((el) => el);
 
     if (!checkData) {
-      showAlert("Error", "Fill in all fields");
+      showAlert(t("error"), t("fillAll"));
       return;
     }
 
@@ -68,7 +72,7 @@ function Form({ selectedDate, editEvent }: FormProps) {
       eventName: "",
       startDate: "",
       startTime: "",
-      repeat: "Weekly",
+      repeat: t("week"),
     });
     setIsModal(editEvent ? "edit" : "form", false);
   };
@@ -76,9 +80,9 @@ function Form({ selectedDate, editEvent }: FormProps) {
   return (
     <View style={{ width: "100%", gap: 20, padding: 0 }}>
       <View>
-        <Text style={styles.label}>Event Name</Text>
+        <Text style={styles.label}>{t("eventName")}</Text>
         <TextInput
-          label="Event Name"
+          label={t("eventName")}
           value={formData.eventName}
           onChangeText={(text) => {
             setFormData((prev) => ({ ...prev, eventName: text }));
@@ -91,7 +95,7 @@ function Form({ selectedDate, editEvent }: FormProps) {
         <View style={styles.grid}>
           <TextInput
             value={formData.startDate}
-            label="Start date"
+            label={t("startDate")}
             style={styles.gridItem}
             onChangeText={(text) => {
               setFormData((prev) => ({ ...prev, startDate: text }));
@@ -100,7 +104,7 @@ function Form({ selectedDate, editEvent }: FormProps) {
           />
           <TextInput
             value={formData.startTime}
-            label="Start time"
+            label={t("startTime")}
             style={styles.gridItem}
             onChangeText={(text) => {
               setFormData((prev) => ({ ...prev, startTime: text }));
@@ -111,7 +115,7 @@ function Form({ selectedDate, editEvent }: FormProps) {
       </View>
       <Select formData={formData} setFormData={setFormData} />
       <Pressable onPress={addEvent} style={styles.saveBtn}>
-        <Text style={styles.textBtn}>SAVE</Text>
+        <Text style={styles.textBtn}>{t("save")}</Text>
       </Pressable>
     </View>
   );

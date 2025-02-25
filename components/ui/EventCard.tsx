@@ -1,20 +1,23 @@
-import { EventCardProps, EventFormData } from "@/types/types";
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { useStore } from "@/stores/useStore";
 import moment from "moment";
+import { useTranslation } from "react-i18next";
+
+import { EventCardProps, EventFormData } from "@/types/types";
 import { showAlert } from "@/utils/alert";
+import { useStore } from "@/stores/useStore";
 
 function EventCard({ event, setIdEvent, setPutevent }: EventCardProps) {
   const { setIsModal } = useStore();
+  const { t } = useTranslation();
 
   const editEvent = (event: EventFormData) => {
     const eventDate = moment(event.startDate, "MMM D.YYYY");
     const today = moment().startOf("day");
 
     if (eventDate.isBefore(today)) {
-      showAlert("Error", "You cannot edit an event in the past!");
+      showAlert(t("error"), t("can'tEdit"));
       return;
     }
     setIsModal("edit", true);

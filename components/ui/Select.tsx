@@ -8,22 +8,26 @@ import {
   StyleSheet,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { useTranslation } from "react-i18next";
+
 import { SelectProps } from "@/types/types";
 
 export default function Select({ formData, setFormData }: SelectProps) {
+  const { t } = useTranslation();
+
   const [inputValue, setInputValue] = useState<string>("");
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
-  const options = ["Weekly", "Bi-weekly", "Monthly"];
+  const options = [t("week"), t("bi-weekly"), t("monthly")];
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Repeat</Text>
+      <Text style={styles.text}>{t("repeat")}</Text>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
           value={formData.repeat || inputValue}
-          onFocus={() => setShowDropdown(true)} 
+          onFocus={() => setShowDropdown(true)}
           editable={false}
         />
         <TouchableOpacity onPress={() => setShowDropdown(!showDropdown)}>
