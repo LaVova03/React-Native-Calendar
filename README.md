@@ -2,9 +2,19 @@
 
 # How to use:
 
-```
-To create an event, first click on the date in the calendar, then click below on the button + Create New Event, if you have selected the correct date, not in the past, then a modal window will open for you, fill out the form and click Save, otherwise there will be an alert with an error warning that the date is already in the past, after this, on the screen you will see your planned event, you can also edit it, if the event is no longer in the past, click on the edit icon, you can also delete the event by clicking on the trash can.
-```
+---
+
+To create an event, follow these steps:
+
+1. **Click on the date** in the calendar.
+2. If the date is correct and not in the past, **click the "+ Create New Event" button** below.
+3. A modal window will open. **Fill out the form** and click **Save**.
+4. If the selected date is in the past, an **alert will appear** with an error message.
+5. After saving, your planned event will appear on the screen.
+6. To **edit** the event, click on the **edit icon** (if the event date is not in the past).
+7. To **delete** the event, click on the **trash can icon**.
+
+---
 
 ## 📚 Project Description
 
