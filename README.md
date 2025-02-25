@@ -122,7 +122,7 @@ This project is structured with clear separation of concerns for easy scalabilit
 
 ## 📦 Example Component
 
-### Component file: `Button.tsx`
+### Component file: `+not-found.tsx`
 
 ```ts
 import { Link, Stack } from "expo-router";
