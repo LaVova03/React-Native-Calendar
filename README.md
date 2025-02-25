@@ -1,12 +1,16 @@
 # React-Native + TypeScript + Expo Project
 
-# 📚 Project Description
+# How to use:
 
-This project is built using React-Native, TypeScript, and Expo.
-The architecture is designed with a focus on
-reusability, scalability, and maintainability.
+```
+To create an event, first click on the date in the calendar, then click below on the button + Create New Event, if you have selected the correct date, not in the past, then a modal window will open for you, fill out the form and click Save, otherwise there will be an alert with an error warning that the date is already in the past, after this, on the screen you will see your planned event, you can also edit it, if the event is no longer in the past, click on the edit icon, you can also delete the event by clicking on the trash can.
+```
 
-# 📂 Project Structure
+## 📚 Project Description
+
+This project is built using React Native, TypeScript, and Expo. The architecture focuses on reusability, scalability, and maintainability.
+
+## 📂 Project Structure
 
 ```
 /api                                   // backend requests
@@ -39,99 +43,77 @@ reusability, scalability, and maintainability.
 ├── types.ts                           // types for components
 /utils                                 // utils folder
 └── alert.ts                           // helper function
-
 ```
 
-# 🔍 Structure Details
+## 🔍 Structure Details
 
-🔍 Project Structure Overview
+### Project Overview
+
 This project is structured with clear separation of concerns for easy scalability and maintainability. It is built with React Native, TypeScript, and Expo, focusing on reusability and performance.
 
-📂 Folder Breakdown
+### Folder Breakdown
 
-1. /api (Backend Requests):
-   This folder contains all files related to making requests to the backend. It is designed to manage the interaction with your API endpoints.
+1. **/api**: Contains files related to making requests to the backend.
+   - `constants.ts`: Contains constants like the base URL for the API.
+   - `getEvents.ts`: Handles API requests to fetch events from the backend.
 
-constants.ts: Contains constants like the base URL for the API.
-getEvents.ts: Handles API request to fetch events from the backend. 2. /app (Main Folder):
-This is the core of your application, containing the layout and different pages.
+2. **/app**: Core of your application containing layout and pages.
+   - `_layout_.tsx`: Main layout for the app.
+   - `+not-found.tsx`: 404 page when a route doesn't match.
+   - `index.tsx`: The main entry point of the app.
 
-layout.tsx: Defines the main layout for the app, likely wrapping page components with a common structure.
-+not-found.tsx: A 404 page to show when a route doesn’t match.
-index.tsx: The main page, often serving as the entry point of the app. 3. /assets:
-This folder holds all static assets used in the project.
+3. **/assets**: Contains all static assets.
+   - **/fonts**: Font files used in the app.
+   - **/images**: Images such as icons or logos.
 
-/fonts: Contains font files used across the app.
-SpaceMono-Regular.ttf: A specific font file.
-/images: Contains images like icons, logos, or other media.
-favicon.png: The favicon image used in the app. 4. /components:
-This folder holds the reusable UI components that make up the interface of the app.
+4. **/components**: Reusable UI components.
+   - **/ui**: Contains UI components like buttons, select dropdowns, etc.
+   - `ThemedText.tsx`: A theme-aware text component.
 
-/tests: This subfolder contains the test files for your components.
-Form-test.tsx: A test file for testing the Form component.
-/ui: This subfolder contains UI components like buttons, forms, or select dropdowns.
-Select.tsx: A component for rendering a select dropdown.
-ThemedText.tsx: A theme-aware text component that adjusts based on the app's theme. 5. /constants:
-This folder stores constants used across the app, such as color schemes and other global settings.
+5. **/constants**: Constants for theming and global settings.
+   - `Colors.ts`: Color constants used across the app.
 
-Colors.ts: Contains color constants used for theming and styling throughout the app. 6. /hooks:
-Custom React hooks used across the app, usually for reusability and encapsulating logic.
+6. **/hooks**: Custom React hooks for reusability.
+   - `useColorScheme.ts`: A hook for determining the current color scheme (light/dark).
 
-useColorScheme.ts: A hook that determines the current color scheme (light/dark) for the app. 7. /store:
-This folder is responsible for managing global state within the app, likely using something like Redux or React Context.
+7. **/store**: State management folder (e.g., Redux or React Context).
+   - `useStore.ts`: Manages global state transitions.
+   - `types.ts`: Types related to state management.
 
-types.ts: Types related to the state structure and state management.
-useStore.ts: The main store file managing state transitions and actions. 8. /types:
-Centralized place for all type definitions used across the app. This includes types for components, backend responses, and other structures.
+8. **/types**: Centralized place for all type definitions.
+   - `react-native-calendar-picker.d.ts`: Type definitions for the calendar picker library.
+   - `types.ts`: General types used across the app.
 
-react-native-calendar-picker.d.ts: Type definitions for the react-native-calendar-picker library.
-types.ts: A general file for types used by components or API responses. 9. /utils:
-Utility functions and helpers that don't directly relate to the UI or state management.
+9. **/utils**: Utility functions and helpers.
+   - `alert.ts`: A utility function for showing alerts.
 
-alert.ts: A utility function for showing alerts across the app.
+## 🚀 Getting Started
 
-#📚 Project Description
-This project is built using React Native, TypeScript, and Expo. It aims to provide a scalable, reusable, and maintainable codebase. The folder structure reflects modularity, ensuring that each section of the application (such as API calls, UI components, and state management) is kept separate, which makes development and debugging easier.
-
-The app focuses on performance and simplicity while providing a rich user experience, leveraging Expo for quick development and TypeScript for type safety.
-
-Example:
-
-```ts
-export const BUTTON_VARIANTS = {
-  PRIMARY: "primary",
-  SECONDARY: "secondary",
-};
-```
-
-# 🚀 Getting Started
-
-Installation:
+### Installation:
 
 1. Clone the repository: `git clone <URL>`
 2. Navigate to the project directory: `cd <project-name>`
 3. Install dependencies: `npm install`
 
-Scripts:
+### Scripts:
 
-- Run the development server: `npm run start or npm start`
+- Run the development server: `npm run start` or `npm start`
 - Build the project: `npm run build`
-- Run tests: npm `run test`
+- Run tests: `npm run test`
 
-# 🛠️ Technologies Used
+## 🛠️ Technologies Used
 
-- React-Native: A library for building user mobile interfaces.
-- TypeScript: Adds static typing for better reliability.
-- Expo: A fast build tool.
+- **React Native**: A framework for building native mobile apps.
+- **TypeScript**: Adds static typing for better reliability.
+- **Expo**: A platform for faster React Native development.
 
-# 📦 Example Component
+## 📦 Example Component
 
-- Component file: Button.tsx
+### Component file: `Button.tsx`
 
 ```ts
 import { Link, Stack } from "expo-router";
 import { StyleSheet } from "react-native";
-
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 
@@ -150,7 +132,7 @@ export default function NotFoundScreen() {
 }
 ```
 
-- Types file: types.ts
+### Types file: `types.ts`
 
 ```ts
 export interface EventFormData {
@@ -162,7 +144,6 @@ export interface EventFormData {
 }
 ```
 
-#🛠️ Technologies Used
-React Native: Framework for building native mobile apps.
-TypeScript: Ensures type safety across the codebase.
-Expo: An open-source platform for building React Native apps faster
+---
+
+Теперь описание более лаконичное и сфокусировано на ключевых аспектах проекта.
